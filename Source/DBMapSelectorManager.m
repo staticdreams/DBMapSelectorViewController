@@ -91,6 +91,7 @@ static const NSInteger kDefaultMaxDistance  = 10000;
     self.fillColor = [UIColor orangeColor];
     self.strokeColor = [UIColor darkGrayColor];
     self.mapRegionCoef = 2.f;
+    self.shouldAutoCenter = NO;
 }
 
 - (void)applySelectorSettings {
@@ -318,7 +319,10 @@ static const NSInteger kDefaultMaxDistance  = 10000;
 - (void)updateMapRegionForMapSelector {
     MKCoordinateRegion selectorRegion = MKCoordinateRegionForMapRect(_selectorOverlay.boundingMapRect);
     MKCoordinateRegion region;
-    region.center = selectorRegion.center;
+    if (_shouldAutoCenter)
+		region.center = selectorRegion.center;
+	else
+		region.center = self.mapView.centerCoordinate;
     region.span = MKCoordinateSpanMake(selectorRegion.span.latitudeDelta * _mapRegionCoef, selectorRegion.span.longitudeDelta * _mapRegionCoef);
     [self.mapView setRegion:region animated:YES];
 }
