@@ -99,6 +99,9 @@ typedef NS_ENUM(NSInteger, DBMapSelectorEditingType) {
 /*! @brief It allows to move the selector to a new location via long press gesture */
 @property (nonatomic) BOOL                              shouldLongPressGesture; // default is NO
 
+/*! @brief Allows to disable auto map centering. Use with causion */
+@property (nonatomic) BOOL								shouldAutoCenter;                 // default is NO
+
 - (instancetype)initWithMapView:(MKMapView *)mapView;
 - (void)applySelectorSettings;
 
