@@ -46,6 +46,7 @@ typedef NS_ENUM(NSInteger, DBMapSelectorEditingType) {
 
 @property (nonatomic, weak) id<DBMapSelectorManagerDelegate> delegate;
 @property (nonatomic, strong, readonly) MKMapView       *mapView;
+@property (strong, nonatomic) DBMapSelectorOverlay      *overlay;
 
 /*!
  @brief Used to specify the selector editing type
@@ -101,6 +102,8 @@ typedef NS_ENUM(NSInteger, DBMapSelectorEditingType) {
 
 /*! @brief Allows to disable auto map centering. Use with causion */
 @property (nonatomic) BOOL								shouldAutoCenter;                 // default is NO
+
+
 
 - (instancetype)initWithMapView:(MKMapView *)mapView;
 - (void)applySelectorSettings;
