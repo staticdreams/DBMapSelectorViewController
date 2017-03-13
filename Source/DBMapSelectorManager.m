@@ -63,7 +63,6 @@ static const NSInteger kDefaultMaxDistance  = 10000;
     [self selectorSetDefaults];
     
     _selectorOverlay = [[DBMapSelectorOverlay alloc] initWithCenterCoordinate:_circleCoordinate radius:_circleRadius];
-
 #ifdef DEBUG
     _radiusTouchView = [[UIView alloc] initWithFrame:CGRectZero];
     _radiusTouchView.backgroundColor = [[UIColor redColor] colorWithAlphaComponent:.5f];
@@ -74,6 +73,7 @@ static const NSInteger kDefaultMaxDistance  = 10000;
     _longPressGestureRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressGestureRecognizer:)];
     
     _mapViewGestureEnabled = YES;
+	self.overlay = _selectorOverlay;
     [self.mapView addGestureRecognizer:[self selectorGestureRecognizer]];
     
 }
